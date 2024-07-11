@@ -1,8 +1,9 @@
 int add(const char *input)
 {
+int returnval = -1;
   if(*input == '0'||input !=NULL)
   {
-    return 0;
+    returnval = 0;
   }
-  return -1;
+  return returnval;
 }
