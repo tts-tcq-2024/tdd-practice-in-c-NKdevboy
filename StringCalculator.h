@@ -14,7 +14,7 @@ int CharToInt(const char CutChar)
 
 int IslengthLessThanOne(const char *inStr,int StrLen,int *OutVal)
 {
-  if((StrLen == 0) || (StrLen == 1))
+  if(StrLen <= 1)
   {
      *OutVal = CharToInt(*inStr);
       return 1;
@@ -30,9 +30,12 @@ int add(const char *input)
   int Str_len = 0;
   int returnval = 0xFF;
   Str_len = strlen(input);
-  if(IslengthLessThanOne(input,Str_len,&returnval))
+  if(1==IslengthLessThanOne(input,Str_len,&returnval))
   {
    return returnval;
   }
+  else
+  {
    return 3;
+  }
 }
