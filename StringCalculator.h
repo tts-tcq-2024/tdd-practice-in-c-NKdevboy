@@ -34,4 +34,5 @@ int add(const char *input)
   {
    return returnval;
   }
+   return 3;
 }
