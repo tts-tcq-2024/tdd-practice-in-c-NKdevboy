@@ -30,7 +30,7 @@ int add(const char *input)
   int Str_len = 0;
   int returnval = 0xFF;
   Str_len = strlen(input);
-  if(1==IslengthLessThanOne(input,Str_len,&returnval))
+  if(IslengthLessThanOne(input,Str_len,&returnval))
   {
    return returnval;
   }
