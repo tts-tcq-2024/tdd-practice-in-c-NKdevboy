@@ -1,27 +1,37 @@
-
-int nullCheck(const char *input)
+int CharToInt(const char CutChar)
 {
- // if(*input == '0'||input !=NULL)  need to write 
-  if(*input == '0')
+   int value = 0xff;
+   value = (CutChar - '0');
+   if((value >= 0) && (value <= 9))
+   {
+    return value;
+   }
+   else
+   {
+    return 0;
+   }
+}
+
+int IslengthLessThanOne(const char *inStr,int StrLen,int *OutVal)
+{
+  if((StrLen == 0) || (StrLen == 1))
   {
-    returnval = 0;
+     *OutVal = CharToInt(*inStr);
+      return 1;
   }
-  else
+  else 
   {
-    returnval = -1;
+    return 0;
   }
 }
 
-
-
-
 int add(const char *input)
 {
-  int returnval = -1;
   int Str_len = 0;
+  int returnval = 0xFF;
   Str_len = strlen(input);
-  returnval = nullCheck(input)
-
-
-  return returnval;
+  if(IslengthLessThanOne(input,Str_len,&returnval))
+  {
+   return returnval;
+  }
 }
