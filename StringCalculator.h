@@ -25,6 +25,12 @@ int IslengthLessThanOne(const char *inStr,int StrLen,int *OutVal)
   }
 }
 
+int AdditionMain(char *inStr)
+{
+
+   
+}
+
 int add(const char *input)
 {
   int Str_len = 0;
@@ -36,6 +42,6 @@ int add(const char *input)
   }
   else
   {
-   return 3;
+   return AdditionMain(input);
   }
 }
