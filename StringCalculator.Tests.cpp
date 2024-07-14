@@ -24,7 +24,7 @@ TEST(StringCalculatorAddTests, ExpectZeroForSingleZero) {
 
 TEST(StringCalculatorAddTests, ExpectSumForTwoNumbers) {
     int expectedresult = 3;
-    const char*  input = "1,2";
+    const char*  input = "1,2,";
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
