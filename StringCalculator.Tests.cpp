@@ -1,9 +1,16 @@
 #include <gtest/gtest.h>
 #include "StringCalculator.h"
 
-TEST(StringCalculatorAddTests, ExpectZeroForEmptyInput) {
+TEST(StringCalculatorAddTests, ExpectZeroForNoCharNumInput) {
     int expectedresult = 0;
     const char* input = "Hello, world!";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
+TEST(StringCalculatorAddTests, ExpectZeroForEmtyStrInput) {
+    int expectedresult = 0;
+    const char* input = "";
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
@@ -42,3 +49,12 @@ TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
+
+
+TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiterMultiOcr) {
+    int expectedresult = 3;
+    const char*  input = "//;\n1;;;2";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
