@@ -4,7 +4,10 @@ int outIntArr[1000] ={0};
 int NumListSize[100] = {0};
 int readArrStart =0;
 int TotalNum =0;
+int lastidex =0;
+
 const int TensArr[4]={1,10,100,1000};
+
 int CharToInt(const char CutChar)
 {
    int value = 0xff;
@@ -76,7 +79,7 @@ void ReadCharArrToint(const char *inStr)
    inStr = inStr+readArrStart;
    for(;inStr[i] != NULL;i++,j++)
    {
-      localNum = CharToInt(inStr[i];
+      localNum = CharToInt(inStr[i]);
       if((0xff != localNum)&&(j<4))
       {
          loclArr[j] = localNum;
@@ -93,7 +96,7 @@ int ArrToNum(int cnt)
    int sum =0,loc =0;
    for(int i=0;i< cnt;i++)
    {
-    loc = (outIntArr[i] * TensArr[(cnt-(i+1))]);
+    loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
     if(loc =< 1000)
     {
        sum +=loc;
