@@ -45,7 +45,7 @@ int AdditionMain(const char *inStr)
 }
 int NoNumCharInStr(const char * input)
 {
-   for(int i=0;input[i] != "\0";i++)
+   for(int i=0;input[i] != NULL ;i++)
    {
       if(0xff != CharToInt(input[i]))
       {
