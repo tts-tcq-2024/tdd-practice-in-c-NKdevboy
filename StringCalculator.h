@@ -124,6 +124,7 @@ int ArrToNum(int cnt)
    for(int i=0;i< cnt;i++)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
+      printf("the list of numbs is %d and cnt is %d\n",loc,cnt);
     if(loc <= 1000)
     {
        sum +=loc;
