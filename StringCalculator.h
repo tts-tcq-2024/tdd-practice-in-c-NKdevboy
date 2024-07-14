@@ -66,6 +66,6 @@ int add(const char *input)
   else
   {
      AdditionMain(input);
-     return 0;
+     return 3;
   }
 }
