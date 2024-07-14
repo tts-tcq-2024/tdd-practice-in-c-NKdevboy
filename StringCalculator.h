@@ -161,74 +161,9 @@ for(int curntNum =0;curntNum <= TotalNum;curntNum++)
    return outSum;
 }
 
-int IsNegtiveSymbol(const char *inStr, char *out)
-{
-    if(*inStr == '-')
-    {
-        out = inStr;
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-    
-}
-
-void userprintExpection(int cnt)
-{
-    for (int i =0;i<cnt;i++)
-    {
-        printf("negatives not allowed\n");
-    }
-}
-
-char * isreturnprtNull(char *out ,const char *inStr)
-{
-    if(out == NULL)
-    {
-        return inStr;
-    }
-    else
-    {
-        return out;
-    }
-    
-}
-char * IsNegativeValuePrest(const char *inStr)
-{
-    int cunt =0;
-    char * outptr = NULL;
-    
-    for (int i =0;inStr[i];i++)
-    {
-        cunt += IsNegtiveSymbol((inStr+i),outptr);
-    }
-    userprintExpection(cunt);
-    return isreturnprtNull(outptr,inStr);
-    
-}
-
-char * IsNegativeValuePrestMain(const char *inStr)
-{
-    char * ptr =NULL;
-    ptr = IsNegativeValuePrest(inStr);
-    
-    for(int i =0;inStr[i];i++)
-    {
-        if(IsourSep(inStr[i]))
-        {
-            return (inStr + i + 1);
-        }
-    }
-    return inStr;
-}
-
-
 int AdditionMain(const char *inStr)
 {
    IsUserdefineSeperatorAvl(inStr);
-   inStr = IsNegativeValuePrestMain(inStr);
    ReadCharArrToint(inStr);
    return addFromGarr();
 }
