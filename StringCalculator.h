@@ -73,7 +73,7 @@ int IsourSep(char Sep)
    }
    return 0;
 }
-void localToGarr(char cntchar, int j,char *loclArr)
+void localToGarr(char cntchar, int j,int *loclArr)
 {
    if((j <= 4)&&(IsourSep(cntChar)))
    {
@@ -83,7 +83,7 @@ void localToGarr(char cntchar, int j,char *loclArr)
 
 void StoreTolocArr(char cntChar ,int j)
 {
-   int loclArr[4]={0},localNum = 0xff
+   int loclArr[4]={0},localNum = 0xff;
       localNum = CharToInt(cntChar);
       if((0xff != localNum)&&(j<4))
       {
@@ -102,7 +102,7 @@ void ReadCharArrToint(const char *inStr)
    inStr = inStr+readArrStart;
    for(;inStr[i] != NULL;i++,j++)
    {
-      StoreTolocArr(inStr[i],j)
+      StoreTolocArr(inStr[i],j);
    }
 }
 int ArrToNum(int cnt)
