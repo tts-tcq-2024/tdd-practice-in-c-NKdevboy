@@ -47,12 +47,19 @@ int IslengthLessThanOne(const char *inStr,int StrLen,int *OutVal)
     return 0;
   }
 }
-void IsUserdefineSeperatorAvl(const char *inStr)
+void CheckIdexthree(const char *inStr)
 {
-   if((inStr[0] == '/')&&(inStr[1] == '/')&&(inStr[3] == '\n'))
+   if(inStr[3] == '\n')
    {
       ListSep[2] = inStr[2];
       readArrStart = 4;
+   }
+}
+void IsUserdefineSeperatorAvl(const char *inStr)
+{
+   if((inStr[0] == '/')&&(inStr[1] == '/'))
+   {
+      CheckIdexthree(inStr);
    }
 }
 
@@ -65,13 +72,18 @@ void CopylocArrToGArr(int*LArr ,int numDigit)
    NumListSize[TotalNum] = numDigit;
    TotalNum++;
 }
+
 int IsourSep(char Sep)
 {
-   if((ListSep[0] == Sep)||(ListSep[1] == Sep)||(ListSep[2] == Sep))
-   {
-      return 1;
-   }
-   return 0;
+
+   for(int i =0;i<3;i++)
+      {
+         if(ListSep[i] == Sep)
+         {
+            return 1;
+         }    
+      }
+return 0;
 }
 void localToGarr(char cntchar, int j,int *loclArr)
 {
