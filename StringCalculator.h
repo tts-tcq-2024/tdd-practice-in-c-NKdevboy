@@ -110,10 +110,12 @@ int NumListSize[100] = {0};
 int TotalNum =0;
    */
 int outSum =0;
-for(int curntNum =0;TotalNum!=curntNum;,curntNum++)
+for(int curntNum =0;TotalNum!=curntNum;curntNum++)
 {
    outSum += ArrToNum(NumListSize[curntNum]); 
 }
+
+   return outSum;
 }
 
 int AdditionMain(const char *inStr)
