@@ -38,12 +38,12 @@ int IslengthLessThanOne(const char *inStr,int StrLen,int *OutVal)
   }
 }
 
-int AdditionMain(char *inStr)
+int AdditionMain(const char *inStr)
 {
 
    
 }
-int NoNumCharInStr(char * input)
+int NoNumCharInStr(const char * input)
 {
    for(int i=0;input[i] != "\0";i++)
    {
