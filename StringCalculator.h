@@ -1,4 +1,4 @@
-char ListSep[3] = {",","\n",","};
+char ListSep[3] = {',','\n',','};
 
 int outIntArr[1000] ={0};
 int NumListSize[100] = {0};
@@ -93,7 +93,7 @@ int ArrToNum(int cnt)
    int sum =0,loc =0;
    for(int i=0;i< cnt;i++)
    {
-    loc = (outIntArr[i] * TensArr[(cnt-(i+1)]);
+    loc = (outIntArr[i] * TensArr[(cnt-(i+1))]);
     if(loc =< 1000)
     {
        sum +=loc;
