@@ -97,7 +97,7 @@ int ArrToNum(int cnt)
    for(int i=0;i< cnt;i++)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
-    if(loc =< 1000)
+    if(loc <= 1000)
     {
        sum +=loc;
     }
