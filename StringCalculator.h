@@ -1,4 +1,4 @@
-char ListSep[3] = {',','\n',','};
+char ListSep[4] = {',','\n',',',NULL};
 
 int outIntArr[1000] ={0};
 int NumListSize[100] = {0};
@@ -70,7 +70,6 @@ void CopylocArrToGArr(int*LArr ,int *numDigit)
    for( i = 0;i<*numDigit;i++)
    {
       outIntArr[lastid+i] = LArr[i];
-      printf("yasi print all the incoming value i is %d -> %d real idex is %d \n",i,LArr[i],(lastid+i));
    }
    NumListSize[TotalNum] = *numDigit;
    lastid += *numDigit;
@@ -81,7 +80,7 @@ void CopylocArrToGArr(int*LArr ,int *numDigit)
 int IsourSep(char Sep)
 {
 
-   for(int i =0;i<3;i++)
+   for(int i =0;i<4;i++)
       {
          if(ListSep[i] == Sep)
          {
@@ -120,9 +119,10 @@ void StoreTolocArr(char cntChar)
 
 void ReadCharArrToint(const char *inStr)
 {
-   int i=0;
+   int i=0,len =0;
    inStr = inStr+readArrStart;
-   for(;inStr[i] != NULL;i++)
+   len = strlen(inStr);
+   for(;i<=(len+1);i++)
    {
       
       StoreTolocArr(inStr[i]);
@@ -137,7 +137,6 @@ int ArrToNum(int cnt)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
     sum +=loc;
-    printf("Idex loction %d and size %d lastidex %d -> sum %d loc is %d \n",lastidex + i,cnt,lastidex,sum,loc);
    }
    lastidex += cnt;
  
@@ -162,7 +161,6 @@ int outSum =0;
 for(int curntNum =0;curntNum <= TotalNum;curntNum++)
 {
    outSum += ArrToNum(NumListSize[curntNum]);
-   printf("The single value is %d total nume is %d -> curntNum is %d -> %d\n",outSum,TotalNum,curntNum,NumListSize[curntNum]);
 }
 
    return outSum;
