@@ -66,11 +66,14 @@ void IsUserdefineSeperatorAvl(const char *inStr)
 void CopylocArrToGArr(int*LArr ,int *numDigit)
 {
     int i=0;
+    static int lastid =0;
    for( i = 0;i<*numDigit;i++)
    {
-      outIntArr[((NumListSize[TotalNum-1])+i)] = LArr[i];
+      outIntArr[lastid+i] = LArr[i];
+      printf("yasi print all the incoming value i is %d -> %d real idex is %d \n",i,LArr[i],(lastid+i));
    }
    NumListSize[TotalNum] = *numDigit;
+   lastid += *numDigit;
    TotalNum++;
    *numDigit = 0;
 }
@@ -106,6 +109,7 @@ void StoreTolocArr(char cntChar)
       {
           
          loclArr[j] = localNum;
+         //printf("yasi the vlaue j is %d and loc %d\n",j,loclArr[j]);
          j++;
       }
       else
@@ -133,8 +137,10 @@ int ArrToNum(int cnt)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
     sum +=loc;
+    printf("Idex loction %d and size %d lastidex %d -> sum %d loc is %d \n",lastidex + i,cnt,lastidex,sum,loc);
    }
    lastidex += cnt;
+ 
    if(sum>1000)
    {
        return 0;
@@ -156,7 +162,7 @@ int outSum =0;
 for(int curntNum =0;curntNum <= TotalNum;curntNum++)
 {
    outSum += ArrToNum(NumListSize[curntNum]);
-   printf("The single value is %d\n",outSum);
+   printf("The single value is %d total nume is %d -> curntNum is %d -> %d\n",outSum,TotalNum,curntNum,NumListSize[curntNum]);
 }
 
    return outSum;
