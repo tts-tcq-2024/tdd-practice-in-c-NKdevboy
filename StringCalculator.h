@@ -63,14 +63,16 @@ void IsUserdefineSeperatorAvl(const char *inStr)
    }
 }
 
-void CopylocArrToGArr(int*LArr ,int numDigit)
+void CopylocArrToGArr(int*LArr ,int *numDigit)
 {
-   for(int i = 0;i<numDigit;i++)
+    int i=0;
+   for( i = 0;i<*numDigit;i++)
    {
-      outIntArr[((NumListSize[TotalNum])+i)] = LArr[i];
+      outIntArr[((NumListSize[TotalNum-1])+i)] = LArr[i];
    }
-   NumListSize[TotalNum] = numDigit;
+   NumListSize[TotalNum] = *numDigit;
    TotalNum++;
+   *numDigit = 0;
 }
 
 int IsourSep(char Sep)
@@ -85,37 +87,43 @@ int IsourSep(char Sep)
       }
 return 0;
 }
-void localToGarr(char cntchar, int j,int *loclArr)
+void localToGarr(char cntchar, int *j,int *loclArr)
 {
-   if((j <= 4)&&(IsourSep(cntchar)))
+   if((*j <= 4)&&(IsourSep(cntchar)))
    {
       CopylocArrToGArr(loclArr,j);
    }
 }
 
-void StoreTolocArr(char cntChar ,int j)
+void StoreTolocArr(char cntChar)
 {
-   int loclArr[4]={0},localNum = 0xff;
+   int localNum = 0xff;
+   static int loclArr[10]={0},j=0;
+   
       localNum = CharToInt(cntChar);
+      
       if((0xff != localNum)&&(j<4))
       {
+          
          loclArr[j] = localNum;
+         j++;
       }
       else
       {
-         localToGarr(cntChar,j,loclArr);
+        localToGarr(cntChar,&j,loclArr);
       }
-   
 }
 
 void ReadCharArrToint(const char *inStr)
 {
-   int i=0,j=0;
+   int i=0;
    inStr = inStr+readArrStart;
-   for(;inStr[i] != NULL;i++,j++)
+   for(;inStr[i] != NULL;i++)
    {
-      StoreTolocArr(inStr[i],j);
+      
+      StoreTolocArr(inStr[i]);
    }
+   
 }
 int ArrToNum(int cnt)
 {
@@ -124,7 +132,6 @@ int ArrToNum(int cnt)
    for(int i=0;i< cnt;i++)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
-      printf("the list of numbs is %d and cnt is %d\n",loc,cnt);
     if(loc <= 1000)
     {
        sum +=loc;
@@ -142,7 +149,7 @@ int NumListSize[100] = {0};
 int TotalNum =0;
    */
 int outSum =0;
-for(int curntNum =0;TotalNum!=curntNum;curntNum++)
+for(int curntNum =0;curntNum <= TotalNum;curntNum++)
 {
    outSum += ArrToNum(NumListSize[curntNum]); 
 }
@@ -156,6 +163,7 @@ int AdditionMain(const char *inStr)
    ReadCharArrToint(inStr);
    return addFromGarr();
 }
+
 int NoNumCharInStr(const char * input)
 {
    for(int i=0;input[i] != NULL ;i++)
