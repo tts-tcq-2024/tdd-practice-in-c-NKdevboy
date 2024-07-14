@@ -132,13 +132,17 @@ int ArrToNum(int cnt)
    for(int i=0;i< cnt;i++)
    {
     loc = (outIntArr[lastidex + i] * TensArr[(cnt-(i+1))]);
-    if(loc <= 1000)
-    {
-       sum +=loc;
-    }
+    sum +=loc;
    }
    lastidex += cnt;
-   return sum;
+   if(sum>1000)
+   {
+       return 0;
+   }
+   else
+   {
+       return sum;
+   }
 }
 
 int addFromGarr(void)
@@ -151,7 +155,8 @@ int TotalNum =0;
 int outSum =0;
 for(int curntNum =0;curntNum <= TotalNum;curntNum++)
 {
-   outSum += ArrToNum(NumListSize[curntNum]); 
+   outSum += ArrToNum(NumListSize[curntNum]);
+   printf("The single value is %d\n",outSum);
 }
 
    return outSum;
