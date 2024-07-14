@@ -75,7 +75,7 @@ int IsourSep(char Sep)
 }
 void localToGarr(char cntchar, int j,int *loclArr)
 {
-   if((j <= 4)&&(IsourSep(cntChar)))
+   if((j <= 4)&&(IsourSep(cntchar)))
    {
       CopylocArrToGArr(loclArr,j);
    }
@@ -118,6 +118,7 @@ int ArrToNum(int cnt)
     }
    }
    lastidex += cnt;
+   return sum;
 }
 
 int addFromGarr(void)
