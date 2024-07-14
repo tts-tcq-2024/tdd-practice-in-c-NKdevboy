@@ -50,3 +50,11 @@ TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
     ASSERT_EQ(result, expectedresult);
 }
 
+
+TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiterMultiOcr) {
+    int expectedresult = 3;
+    const char*  input = "//;\n1;;;2";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
